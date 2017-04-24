@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Music App</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="container">
+    <center><h2><i class="medium material-icons">library_music</i>Music Store</h2></center>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="" action="#" method="post">
+          <div class="form-group">
+            <i class="small material-icons">account_circle</i>
+            <label for="username">Username</label>
+            <input type="text" class="validate" class="form-control" id="username" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <i class="small material-icons">lock</i>
+            <label for="password">Password</label>
+            <input type="password" class="validate" class="form-control" id="password" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <center><button type="button" id="signin" class="btn btn-primary" name="button"><i class="material-icons left">done</i>Sign In</button></center>
+          </div>
+        </form>
+      </div>
+      <div class="panel-footer"></div>
+    </div>
+    <!-- <div id="err" style="display:none" class="alert alert-danger alert-dismissable fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+      <strong>Incorrect username or password</strong>
+      Please check your password.
+    </div> -->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+      $("#signin").click(function() {
+        var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/signin?";
+        url += "username=" + $("#username").val();
+        url += "&password=" + $("#password").val();
+        console.log(url);
+        $.get(url, function(data, status) {
+          console.log(data);
+          // if(data == true){
+          //   //Goto User's info
+          //
+          // }else{
+          //   //Goto Sign up
+          //   $("#err").show();
+          //   //window.location.href = "signup.html";
+          // }
+        });
+      });
+    </script>
+  </body>
+</html>
